@@ -5,6 +5,7 @@ import Login from './components/Login/login';
 import Dashboard from './components/Dashboard/Dashboard';
 import EmployeeDetails from './components/EmployeDetails';
 import Register from './components/Register/Register';
+import ProtectedRoute from './ProtectedRoute';
 
 function App() {
 
@@ -29,10 +30,12 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/dashboard' element={<Dashboard/>}/>
-        <Route path='/employeDetails' element={<EmployeeDetails/>}/>
+        <Route path='/register' element={<Register/>}/>
+        <Route element={<ProtectedRoute/>}>
+            <Route path='/' element={<Dashboard/>}/>
+            <Route path='/employeDetails' element={<EmployeeDetails/>}/>
+        </Route>
       </Routes>
     </div>
   );

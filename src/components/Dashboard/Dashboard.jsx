@@ -8,13 +8,18 @@ function Dashboard() {
 
     const navigate = useNavigate()
 
+    const handleLogout = () => {
+      navigate('/login')
+      localStorage.removeItem('token')
+    }
+
      return (
     <div className="dashboard-container">
       
       {/* Header */}
       <div className="dashboard-header">
         <h1>Employee Dashboard</h1>
-        <span className="logout" onClick={() => navigate('/login')}>Logout</span>
+        <span className="logout" onClick={() => handleLogout()}>Logout</span>
       </div>
 
       {/* Main Layout */}

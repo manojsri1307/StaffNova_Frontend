@@ -16,7 +16,7 @@ const Login = () => {
       const res = await API.post("login/", data);
       console.log(res)
       localStorage.setItem("token", res.data.access);
-      navigate("/dashboard");
+      navigate("/", { replace: true });
     } catch (err) {
       alert("Invalid credentials");
     }
